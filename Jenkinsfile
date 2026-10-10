@@ -13,9 +13,14 @@ pipeline {
             }
         }
 
+        stage('Unit Tests') {
+            steps {
+                bat 'python -m unittest discover -s tests -v'
+            }
+        }
+
         stage('Run Python') {
             steps {
-                bat 'python --version'
                 bat 'python hello.py'
             }
         }
